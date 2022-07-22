@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,7 +42,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'discussion',
     'accounts',
-    'widget_tweaks'
+    'widget_tweaks',
+    
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -83,9 +85,9 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ammar',
+        'NAME': 'blog',
         'USER': 'postgres',
-        'PASSWORD': 'root',
+        'PASSWORD': '#ayman99#',
         'HOST': 'localhost',
         'PORT': '5432'
     }
@@ -138,7 +140,22 @@ LOGOUT_REDIRECT_URL = 'homepage'
 LOGIN_REDIRECT_URL = 'homepage'
 LOGIN_URL = 'login'
 
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'testdjango55@gmail.com'
+EMAIL_HOST_PASSWORD = 'fqflkrusnqecqjlv'
+
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+JAZZMIN_SETTINGS={
+    "site_title": "Admin Pannel",
+    "site_header": "Admin Pannel",
+    "order_with_respect_to": ["auth", "main.banners","main.service","main.enquiry","main.gallery","main.GalleryImage","main.Page","main.Faq","main.SubPlan","main.SubPlanFeature"],
+}

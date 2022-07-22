@@ -7,6 +7,7 @@ from django.urls import reverse
 from django.views.generic import CreateView,UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
+from .helper import send_forget_password_mail
 
 
 from .models import Category, Comment, Post, Reply
@@ -85,9 +86,15 @@ def subscribe(request,id):
     category=get_object_or_404(Category,pk=id)
     if category.user.filter(id=request.user.id).exists():
         category.user.remove(request.user)
+        message=f'you unsubscibe {category.name} in our website'
     else:
         category.user.add(request.user)
+        message=f'you subscibe {category.name} in our website'
         
+    try:
+        send_forget_password_mail(request.user.email, message)
+    except Exception:
+        pass
     return HttpResponseRedirect(request.META["HTTP_REFERER"])       
 
 
