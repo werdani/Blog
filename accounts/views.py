@@ -19,7 +19,7 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             auth_login(request,user)
-            return redirect('home')
+            return redirect('homepage')
     return render(request,'signup.html',{'form':form})
 
 class UserUpdateView(UpdateView):
@@ -43,7 +43,7 @@ def login(request):
             if not user.is_active :
                 return render(request, 'login.html',{'blog':"BLOCKED",'form':form})
             auth_login(request, user)
-            return redirect('/post/home')
+            return redirect('homepage')
           
         else:
             return redirect('/login')
@@ -62,7 +62,7 @@ def user_login(request):
             if user:
                 if user.is_active:
                     auth_login(request, user)
-                    return redirect('/post/home')
+                    return redirect('homepage')
                 elif user.is_active == False:
                     return render(request, 'login.html',{'blog':"BLOCKED",'form':form})
                 #return HttpResponse("Account Not Active")
