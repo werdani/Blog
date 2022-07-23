@@ -15,7 +15,7 @@ https://werdani.pythonanywhere.com/accounts/signup/
 - write this command in CMD to create it :- ' virtualenv env ' .
 - open folder 'env' and acvtivate virtualenv using this command : '.\Scripts\activate' .
 - clone my project using this command : git clone "https://github.com/werdani/Blog" .
-- cd 'pro-service' and install requirments using this command : pip install requirment.txt .
+- cd 'pro-service' and install requirments using this command : pip install -r requirment.txt .
 - now need to create database in PostgreSQL using this name 'blog' .
 - 'USER': 'postgres', 'PASSWORD': 'postgres', 'HOST': 'localhost', 'PORT': '5432' .
 - need to makemigrations using this command in CMD : 'python manage.py makemigrations' .
