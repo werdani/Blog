@@ -8,7 +8,7 @@
 
 ### For live website :
 
-https://werdani.pythonanywhere.com/accounts/signup/
+https://werdani.pythonanywhere.com/post/3
 
 ### How to Install and Run the Project on windows :
 - Create a virtual environment on the desktop, for example 'env' .
